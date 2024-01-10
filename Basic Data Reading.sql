@@ -29,5 +29,11 @@ ORDER BY year DESC LIMIT 1;
 -- COUNT(varname): the count function
 -- AVG(varname): the average function
 -- GROUP BY varname: group by the variable
-SELECT COUNT(*) FROM teams;
-SELECT AVG(wins) FROM teams;
+-- How many teams played in the league in each year?
+SELECT year, COUNT(name) FROM teams GROUP BY year
+
+-- For each team, what is the average number of wins per season, in the 21st century?
+SELECT name,AVG(wins) FROM teams WHERE year > 2000 GROUP BY name
+
+-- In the modern era (1960-present), how many regular season games did the best team win each season?
+SELECT year,name,MAX(wins) FROM teams WHERE year > 1960 GROUP BY year ORDER BY MAX(wins) DESC
