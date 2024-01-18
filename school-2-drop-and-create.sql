@@ -1,3 +1,10 @@
--- Drop the students table
+-- Drop the entire students table
+DROP TABLE students; 
 
 -- Recreate it
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    phone TEXT
+);
